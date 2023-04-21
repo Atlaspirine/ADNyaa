@@ -22,8 +22,8 @@ def is_in_blacklist(anime_title):
         blacklist = f.read().splitlines()
         return anime_title in blacklist
 
-def search_on_nyaa(title, episode):
-    # Merge the title and episode number into a single search query
+def search_on_nyaa(title, episode, today):
+    # Merge the title, episode number, and date into a single search query
     search_query = f"{title} vostfr"
 
     # Open the search page on nyaa.si in a new tab
@@ -69,8 +69,8 @@ for title, episode_info in anime_info:
     
     # Check if the anime is in the blacklist
     if not is_in_blacklist(title):
-        print("O - {} (Episode {})".format(title, episode_info))
+        print("\033[92m→\033[0m {} (Episode {})".format(title, episode_info))
         # Search on nyaa.si for the anime
-        search_on_nyaa(title, episode_info)
+        search_on_nyaa(title, episode_info, today)
     else:
-        print(f"X - {title} (Episode {episode_info})")
+        print("\033[31m→\033[0m {} (Episode {})".format(title, episode_info))
