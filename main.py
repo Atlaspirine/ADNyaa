@@ -6,7 +6,7 @@ import webbrowser
 
 def search_on_nyaa(title, episode):
     # Merge the title and episode number into a single search query
-    search_query = f"{title} {episode_info.replace('Episode ', '')} vostfr"
+    search_query = f"{title} vostfr"
     
     
     # Open the search page on nyaa.si in a new tab
